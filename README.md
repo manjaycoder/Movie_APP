@@ -59,52 +59,11 @@ Welcome to the Moves App! This project is a full-stack web application designed 
    npm install
 6. **Start the frontend development server**:
    npm start
-## Usage 🖥️
-
-Once the servers are running, open your browser and navigate to `http://localhost:3000`. You can register, log in, and start tracking your activities!
-
-const updateGenre = asyncHandler(async (req, res) => {
-  const { name } = req.body;
-  const { id } = req.params;
-
-  const genre = await Genre.findById(id);
-  if (!genre) {
-    return res.status(404).json({ error: "Genre not found" });
-  }
-
-  genre.name = name;
-  const updatedGenre = await genre.save();
-  res.json(updatedGenre);
-});
 
 
 
 
 
-const updateGenre = asyncHandler(async (req, res) => {
-  const { name } = req.body;
-  const { id } = req.params;
-
-  // Validate that name is provided
-  if (!name) {
-    return res.status(400).json({ error: "Genre name is required." });
-  }
-
-  // Validate the ObjectId
-
-  // Find the genre by ID
-  const genre = await Genre.findById(id);
-  if (!genre) {
-    return res.status(404).json({ error: "Genre not found." });
-  }
-
-  // Update the genre name
-  genre.name = name.trim(); // Trim whitespace from the name
-  const updatedGenre = await genre.save();
-
-  // Respond with the updated genre
-  res.status(200).json(updatedGenre);
-});
 
 
 
